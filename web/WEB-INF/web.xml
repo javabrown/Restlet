@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app>
+  <display-name>RestletDemo</display-name>
+  
+  <context-param>
+		<param-name>org.restlet.application</param-name>
+		<param-value>
+				com.jbrown.web.servlets.HelloWorldApplication
+		</param-value>
+	</context-param>
+
+	<servlet>
+		  <servlet-name>RestletServlet</servlet-name>
+		  <servlet-class>org.restlet.ext.servlet.ServerServlet</servlet-class>
+		  <init-param>
+			   <param-name>org.restlet.application</param-name>
+			   <param-value>com.jbrown.web.servlets.HelloWorldApplication</param-value>
+		  </init-param>
+	</servlet>
+ 
+  <servlet>
+		  <servlet-name>TestServlet</servlet-name>
+		  <servlet-class>
+			        com.jbrown.web.servlets.TestServlet
+			</servlet-class>
+		  <load-on-startup>1</load-on-startup>
+	</servlet>
+ 
+	 	
+	 <servlet-mapping>
+		   <servlet-name>TestServlet</servlet-name>
+		   <url-pattern>/test</url-pattern>
+	 </servlet-mapping>
+	 
+	 <servlet-mapping>
+		  <servlet-name>RestletServlet</servlet-name>
+		  <url-pattern>/service/*</url-pattern>
+ 	 </servlet-mapping>
+ 
+</web-app>
