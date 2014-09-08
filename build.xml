@@ -7,7 +7,7 @@
 	    <fileset dir="web/WEB-INF/lib/" includes="*.jar"/>
 	</path>
 	<property name="jar.file" value="rest.war"/>
-	<property name="catalina.dir" value="c:/tomcat7/webapps/"/>
+	<property name="catalina.dir" value="c:/tomcat/webapps/"/>
 	
 	
 	<target name='build'>

@@ -3,13 +3,20 @@
 <web-app>
   <display-name>RestletDemo</display-name>
   
-  <context-param>
+    <!--context-param>
 		<param-name>org.restlet.application</param-name>
 		<param-value>
 				com.jbrown.web.servlets.HelloWorldApplication
 		</param-value>
-	</context-param>
-
+	</context-param -->
+  
+    <context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>
+	      /WEB-INF/rest-servlet.xml
+	    </param-value>
+    </context-param>
+  
 	<servlet>
 		  <servlet-name>RestletServlet</servlet-name>
 		  <servlet-class>org.restlet.ext.servlet.ServerServlet</servlet-class>
@@ -18,7 +25,12 @@
 			   <param-value>com.jbrown.web.servlets.HelloWorldApplication</param-value>
 		  </init-param>
 	</servlet>
- 
+	
+    <servlet>
+	    <servlet-name>rest</servlet-name>
+	    <servlet-class>org.restlet.ext.spring.RestletFrameworkServlet</servlet-class>
+    </servlet>
+  	
   <servlet>
 		  <servlet-name>TestServlet</servlet-name>
 		  <servlet-class>
@@ -27,7 +39,11 @@
 		  <load-on-startup>1</load-on-startup>
 	</servlet>
  
-	 	
+	<servlet-mapping>
+	    <servlet-name>rest</servlet-name>
+	    <url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+  	 	
 	 <servlet-mapping>
 		   <servlet-name>TestServlet</servlet-name>
 		   <url-pattern>/test</url-pattern>
@@ -37,5 +53,9 @@
 		  <servlet-name>RestletServlet</servlet-name>
 		  <url-pattern>/service/*</url-pattern>
  	 </servlet-mapping>
- 
+ 	 
+     <!-- listener>
+       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+     </listener -->
+     
 </web-app>

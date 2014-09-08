@@ -8,7 +8,7 @@ import org.restlet.resource.ServerResource;
    
 public class HelloWorldResource extends ServerResource {
  
-@ Get   
+@Get   
 public String represent () {
 return   "Hello, world";
 }
